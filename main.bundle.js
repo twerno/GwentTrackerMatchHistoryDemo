@@ -1283,7 +1283,9 @@ function historyUrlMatcher(segments, group, route) {
     }
 }
 function historyFixer(segments, group, route) {
-    window.location.href = window.location.href + '?page=history';
+    if (window.location.href.indexOf('?page=') === -1) {
+        window.location.href = window.location.href + '?page=history';
+    }
     return null;
 }
 var appRoutes = [
